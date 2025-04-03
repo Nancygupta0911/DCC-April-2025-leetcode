@@ -1,0 +1,16 @@
+class Solution {
+public:
+    long long maximumTripletValue(vector<int>& nums) {
+          long long maxTripletValue = 0;  
+        int maxNum = 0;  
+        int maxDifference = 0;  
+
+        for (int num : nums) {
+            maxTripletValue = std::max(maxTripletValue, 1LL * maxDifference * num);
+            maxNum = std::max(maxNum, num);
+            maxDifference = std::max(maxDifference, maxNum - num);
+        }
+
+        return maxTripletValue;
+    }
+};
